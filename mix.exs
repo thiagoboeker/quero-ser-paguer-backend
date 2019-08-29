@@ -9,7 +9,7 @@ defmodule PagBackend.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       name: "PagBackend",
-      source_url: "https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/elixir-version",
+      source_url: "https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/master",
       docs: [
         main: "PagBackend",
         source_url_pattern: "https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/elixir-version/%{path}#L%{line}"
