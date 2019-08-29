@@ -65,7 +65,7 @@ PagBackend      </a>
 
       <h1>
         <small class="app-vsn">PagBackend v1.0.0</small>
-PagBackend          <a href="https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/elixir-version/lib/pag_backend/pag_backend.ex#L1" title="View Source" class="view-source" rel="help">
+PagBackend          <a href="https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/master/lib/pag_backend/pag_backend.ex#L1" title="View Source" class="view-source" rel="help">
             <span class="icon-code" aria-hidden="true"></span>
             <span class="sr-only">View Source</span>
           </a>
@@ -96,10 +96,10 @@ conceitos de DDD e Channels e muitas outras coisas que nao seriam utilizadas. En
 
 <p>Eu estou a um bom tempo investindo em FP, e umas das features mais legais que eu gosto de usar<br>é o Pattern Matching. Entao se voce ver coisas como isso aqui, eu explico.</p>
 <h4>Exemplos</h4>
-<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="0157083506-1">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="ss">:ok</span><span class="p" data-group-id="0157083506-1">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0157083506-2">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="ss">:ok</span><span class="p" data-group-id="0157083506-2">]</span><span class="w">
-</span><span class="p" data-group-id="0157083506-3">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="ss">:ok</span><span class="p" data-group-id="0157083506-3">]</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="0157083506-4">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p" data-group-id="0157083506-4">]</span><span class="w">
-</span><span class="p" data-group-id="0157083506-5">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="0157083506-5">]</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4297937044-1">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">,</span><span class="w"> </span><span class="ss">:ok</span><span class="p" data-group-id="4297937044-1">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="4297937044-2">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="ss">:ok</span><span class="p" data-group-id="4297937044-2">]</span><span class="w">
+</span><span class="p" data-group-id="4297937044-3">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="ss">:ok</span><span class="p" data-group-id="4297937044-3">]</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4297937044-4">[</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p" data-group-id="4297937044-4">]</span><span class="w">
+</span><span class="p" data-group-id="4297937044-5">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="4297937044-5">]</span></code></pre>
 <p>Como visto, o lado direito se equipara ao lado esquerdo de todas maneiras, sendo assim as variaveis 
 a e b agora valem respectivamente 1 e 2 para a equivalencia ser alcançada.
 A vantagem desse tipo de abordagem é a possibilidade de asserção entre os lados, lançando uma exceção quando a equivalencia nao é alcançada, deixando o codigo mais seguro por crashar uma presunção errada de matching, 
