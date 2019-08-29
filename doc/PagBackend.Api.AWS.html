@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.21.1">
+    <meta name="project" content="PagBackend v1.0.0">
+    <title>PagBackend.Api.AWS — PagBackend v1.0.0</title>
+    <link rel="stylesheet" href="dist/html-9914b37a220eb2c313b6.css" />
+    <script src="dist/sidebar_items-f4d515003f.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/html-9914b37a220eb2c313b6.js"></script>
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode') === 'true') document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button">
+      <span class="icon-cross" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Search" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="PagBackend.html" class="sidebar-projectName">
+PagBackend      </a>
+      <h2 class="sidebar-projectVersion">
+        v1.0.0
+      </h2>
+    </div>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+        <small class="app-vsn">PagBackend v1.0.0</small>
+PagBackend.Api.AWS          <a href="https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/elixir-version/lib/api/api/aws/aws.ex#L1" title="View Source" class="view-source" rel="help">
+            <span class="icon-code" aria-hidden="true"></span>
+            <span class="sr-only">View Source</span>
+          </a>
+      </h1>
+
+
+        <section id="moduledoc">
+<p>Esse modulo contem o dominio/interface das funcionalidades da AWS dentro da API</p>
+<blockquote><p>Note: Para as funcoes que interagem com o API cognito, cheque as regras de parametrizacao 
+declaradas na criacao do pool/cliente.</p>
+</blockquote>
+        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#aws_delete_user/1">aws_delete_user(params)</a>
+  </div>
+    <div class="summary-synopsis"><p>Delete um usuario do Cognito</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#aws_init_auth/1">aws_init_auth(params)</a>
+  </div>
+    <div class="summary-synopsis"><p>Inicia o processo de autenticacao do usuario. O parametro de autenticacao é <strong>USER_PASSWORD_AUTH</strong>. 
+Por default para primeiro login com o password temporario, se o usuario estiver com o status de FORCE_CHANGE_PASSWORD
+essa funcao retorna um Challenge para ser requisitado a mudanca de senha para o cliente com a funcao 
+<a href="#aws_respond_challenge/1"><code class="inline">aws_respond_challenge/1</code></a>. 
+Caso contrario retorna as devidas tokens.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#aws_register_user/1">aws_register_user(params)</a>
+  </div>
+    <div class="summary-synopsis"><p>Funcao para registrar um usuario dentro do AWS Cognito</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#aws_register_user_with_pass/2">aws_register_user_with_pass(params, pass)</a>
+  </div>
+    <div class="summary-synopsis"><p>Registra um usuario com o password temporario especificado</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#aws_respond_challenge/1">aws_respond_challenge(params)</a>
+  </div>
+    <div class="summary-synopsis"><p>Responde o challenge do processo de autenticacao. Para a v1 essa funcao atende apenas ao parametro 
+<strong>NEW_PASSWORD_REQUIRED</strong></p></div>
+</div>
+  </div>
+        </section>
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="aws_delete_user/1">
+  <div class="detail-header">
+    <a href="#aws_delete_user/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">aws_delete_user(params)</h1>
+      <a href="https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/elixir-version/lib/api/api/aws/aws.ex#L34" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+  </div>
+  <section class="docstring">
+<p>Delete um usuario do Cognito</p>
+  </section>
+</section>
+<section class="detail" id="aws_init_auth/1">
+  <div class="detail-header">
+    <a href="#aws_init_auth/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">aws_init_auth(params)</h1>
+      <a href="https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/elixir-version/lib/api/api/aws/aws.ex#L47" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+  </div>
+  <section class="docstring">
+<p>Inicia o processo de autenticacao do usuario. O parametro de autenticacao é <strong>USER_PASSWORD_AUTH</strong>. 
+Por default para primeiro login com o password temporario, se o usuario estiver com o status de FORCE_CHANGE_PASSWORD
+essa funcao retorna um Challenge para ser requisitado a mudanca de senha para o cliente com a funcao 
+<a href="#aws_respond_challenge/1"><code class="inline">aws_respond_challenge/1</code></a>. 
+Caso contrario retorna as devidas tokens.</p>
+  </section>
+</section>
+<section class="detail" id="aws_register_user/1">
+  <div class="detail-header">
+    <a href="#aws_register_user/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">aws_register_user(params)</h1>
+      <a href="https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/elixir-version/lib/api/api/aws/aws.ex#L16" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+  </div>
+  <section class="docstring">
+<p>Funcao para registrar um usuario dentro do AWS Cognito</p>
+  </section>
+</section>
+<section class="detail" id="aws_register_user_with_pass/2">
+  <div class="detail-header">
+    <a href="#aws_register_user_with_pass/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">aws_register_user_with_pass(params, pass)</h1>
+      <a href="https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/elixir-version/lib/api/api/aws/aws.ex#L25" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+  </div>
+  <section class="docstring">
+<p>Registra um usuario com o password temporario especificado</p>
+  </section>
+</section>
+<section class="detail" id="aws_respond_challenge/1">
+  <div class="detail-header">
+    <a href="#aws_respond_challenge/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">aws_respond_challenge(params)</h1>
+      <a href="https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/elixir-version/lib/api/api/aws/aws.ex#L75" class="view-source" rel="help" title="View Source">
+       <span class="icon-code" aria-hidden="true"></span>
+       <span class="sr-only">View Source</span>
+     </a>
+  </div>
+  <section class="docstring">
+<p>Responde o challenge do processo de autenticacao. Para a v1 essa funcao atende apenas ao parametro 
+<strong>NEW_PASSWORD_REQUIRED</strong></p>
+  </section>
+</section>
+          </div>
+        </section>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.21.1),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>
