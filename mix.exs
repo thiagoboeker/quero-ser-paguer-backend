@@ -12,7 +12,7 @@ defmodule PagBackend.MixProject do
       source_url: "https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/master",
       docs: [
         main: "PagBackend",
-        source_url_pattern: "https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/elixir-version/%{path}#L%{line}"
+        source_url_pattern: "https://github.com/thiagoboeker/quero-ser-paguer-backend/tree/master/%{path}#L%{line}"
       ]
     ]
   end
