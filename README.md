@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 ![](logo_pag.png)
 
@@ -28,3 +29,26 @@ Assim que concluir, faça um Pull Request e mande seu currículo para <queroserp
 - API Gateway
 - Cognito
 - [Serverless Framework](https://serverless.com/)
+=======
+# PagBackend
+
+**TODO: Add description**
+
+## Installation
+
+If [available in Hex](https://hex.pm/docs/publish), the package can be installed
+by adding `pag_backend` to your list of dependencies in `mix.exs`:
+
+```elixir
+def deps do
+  [
+    {:pag_backend, "~> 0.1.0"}
+  ]
+end
+```
+
+Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
+and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
+be found at [https://hexdocs.pm/pag_backend](https://hexdocs.pm/pag_backend).
+
+>>>>>>> dd00a727bde2b421ed5aea12f657ac5c758f5764
