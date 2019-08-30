@@ -4,7 +4,7 @@ defmodule PagBackend do
   Versão em Elixir do desafio de backend da pag! S.A para desenvolvedores.
 
   > Para visualizar o codigo fonte das funcoes, clique no icone </> no canto superior direito da assinatura da funcao. 
-  
+
   ## Consideracoes
 
   ### Sem Phoenix?
@@ -30,12 +30,11 @@ defmodule PagBackend do
   A vantagem desse tipo de abordagem é a possibilidade de asserção entre os lados, lançando uma exceção quando a equivalencia nao é alcançada, deixando o codigo mais seguro por crashar uma presunção errada de matching, 
   na minha opinião isso é algo muito poderoso.  
   Deixando bem claro que nao estou lecionando para ninguem, tenho certeza que gente mais capacitada que 
-  inclusive pode me ensinar uma coisa ou duas pode estar lendo. Apenas explicitando as minhas preferencias para se entender melhor o estilo do meu codigo.
+  inclusive poderia me ensinar uma coisa ou duas deve estar lendo. Apenas explicando as minhas preferencias para se entender melhor o estilo do meu codigo.
 
   ### Testes
 
-  Os suites de testes apesar de pequenos cobrem um bocado. Só lembrando que a ausencia dos assertions é justamente devido ao pattern matching nas chamadas  
-  das funcoes, causando uma certa redundancia pois se o PM falhar sera lançada uma exceção falhando assim o teste. 
+  Os suites de testes apesar de pequenos cobrem um bocado. Só lembrando que a ausencia dos assertions é justamente devido ao pattern matching nas chamadas das funcoes, causando uma certa redundancia pois se o PM falhar sera lançada uma exceção falhando assim o teste. 
 
   ### Estrutura
 
@@ -45,7 +44,7 @@ defmodule PagBackend do
   ### Decisões
 
   Minhas decisões sao baseadas em boas praticas que eu acredito. Entao pra expor um pouco oq eu penso eu posso dizer que eu favoreço coesão ao inves de acoplamento, expressividade ao invés de reusabilidade.
-  
+
   ### Docker
 
   Elixir tem uma maneira bem unica e facil de fazer deploy com releases. Ainda pode dockerizar.

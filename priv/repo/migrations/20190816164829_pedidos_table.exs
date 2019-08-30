@@ -4,7 +4,7 @@ defmodule PagBackend.Repo.Migrations.PedidosTable do
   def change do
     create table("pedidos") do
       add :id_cliente, references(:clientes)
-      add :valor, :"DECIMAL(10,2)"
+      add :valor, :integer
       timestamps([type: :utc_datetime])
     end
   end

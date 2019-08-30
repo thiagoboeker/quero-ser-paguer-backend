@@ -11,8 +11,8 @@ defmodule PagBackend.Schema.ItemPedidos do
   schema "item_pedidos" do
     belongs_to(:produto, PagBackend.Schema.Produtos, foreign_key: :id_produto)
     belongs_to(:pedido, PagBackend.Schema.Pedidos, foreign_key: :id_pedido)
-    field(:quantidade, :float)
-    field(:preco, :float)
+    field(:quantidade, :integer)
+    field(:preco, :integer)
     timestamps(type: :utc_datetime, auto_generate: {PagBackend.Repo, :current_time, []})
   end
 

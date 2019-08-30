@@ -4,7 +4,7 @@ defmodule PagBackend.Repo.Migrations.ProdutosTable do
   def change do
     create table("produtos") do
       add :nome, :string, size: 100
-      add :preco_sugerido, :"DECIMAL(10,2)"
+      add :preco_sugerido, :integer
       timestamps([type: :utc_datetime])
     end
   end

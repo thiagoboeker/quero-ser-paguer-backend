@@ -71,7 +71,9 @@ defmodule PagBackend.Api.Clientes.Authorizer do
 end
 
 defmodule PagBackend.Api.Clientes.Auth do
-  @moduledoc false
+  @moduledoc """
+  Autentica o cliente
+  """
 
   use Plug.Router
   import PagBackend.Api

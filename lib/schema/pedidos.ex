@@ -3,6 +3,8 @@ defmodule PagBackend.Schema.Pedidos do
 
   use Ecto.Schema
   import Ecto.Changeset
+  alias PagBackend.Schema.ItemPedidos
+
   @fields [:id_cliente]
   @encoding [:id, :id_cliente, :valor, :items, :inserted_at, :updated_at]
 
@@ -10,7 +12,7 @@ defmodule PagBackend.Schema.Pedidos do
   schema "pedidos" do
     belongs_to(:cliente, PagBackend.Schema.Clientes, foreign_key: :id_cliente)
     has_many(:items, PagBackend.Schema.ItemPedidos, foreign_key: :id_pedido)
-    field(:valor, :float)
+    field(:valor, :integer)
     timestamps(type: :utc_datetime, auto_generate: {PagBackend.Repo, :current_time, []})
   end
 
@@ -20,15 +22,19 @@ defmodule PagBackend.Schema.Pedidos do
     |> validate_required(@fields)
     |> cast_assoc(:items)
     |> validate_length(:items, min: 1)
-    |> prepare_changes(&calcula_valor/1)
   end
 
-  defp calcula_valor(changeset) do
-    valor =
-      changeset
-      |> get_change(:items)
-      |> Enum.reduce(0, fn item, acc -> acc + item.changes.quantidade * item.changes.preco end)
-
-    put_change(changeset, :valor, valor)
+  def calcula_valor({:ok, changeset}, params) do
+    valor = Enum.map(params["items"], &create_item/1) |> Enum.reduce(0, &sum_valor/2)
+    {:ok, %{changeset | valor: valor}}
   end
+
+  def calcula_valor(changeset, params) do
+    {:ok, updated} = calcula_valor({:ok, changeset}, params)
+    updated
+  end
+
+  defp create_item(item), do: ItemPedidos.changeset(%ItemPedidos{}, item)
+
+  defp sum_valor(v, acc), do: acc + v.changes.preco * v.changes.quantidade
 end

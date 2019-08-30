@@ -24,6 +24,7 @@ defmodule PagBackend.Api.Pedidos.Router do
 
   post route("/pedidos") do
     %Pedidos{}
+    |> Pedidos.calcula_valor(conn.body_params)
     |> DAO.create(Pedidos, conn.body_params)
     |> handle_success(fn result ->
       send_resp(conn, 201, json_resp(success: true, data: result))
@@ -45,6 +46,7 @@ defmodule PagBackend.Api.Pedidos.Router do
     Pedidos
     |> DAO.show(id)
     |> DAO.preload(:items)
+    |> Pedidos.calcula_valor(conn.body_params)
     |> DAO.update(Pedidos, conn.body_params)
     |> handle_success(fn result ->
       send_resp(conn, 200, json_resp(success: true, data: result))

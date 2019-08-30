@@ -9,7 +9,7 @@ defmodule PagBackend.Schema.Produtos do
   @derive {Poison.Encoder, only: @encoding}
   schema "produtos" do
     field(:nome, :string)
-    field(:preco_sugerido, :decimal)
+    field(:preco_sugerido, :integer)
     timestamps(type: :utc_datetime, auto_generate: {PagBackend.Repo, :current_time, []})
   end
 

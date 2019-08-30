@@ -5,8 +5,8 @@ defmodule PagBackend.Repo.Migrations.ItemsPedidosTable do
     create table("item_pedidos") do
       add :id_pedido, references(:pedidos)
       add :id_produto, references(:produtos)
-      add :quantidade, :"DECIMAL(10,2)"
-      add :preco, :"DECIMAL(10,2)"
+      add :quantidade, :integer
+      add :preco, :integer
       timestamps([type: :utc_datetime])
     end
   end
